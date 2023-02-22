@@ -1,0 +1,124 @@
+﻿@model PointOfSalesSystem.Models.ViewModels.ExpenseItemCreateVM
+@using POS.Models.EntityModel;
+@using PointOfSalesSystem.Models.ViewModels;
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+<div class="form-horizontal">
+    <h4>ExpenseItemCreateVM</h4>
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.ExpenseCategoryId, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DropDownListFor(model => model.ExpenseCategoryId, new SelectList(Model.ExpenseCategories, "Id", "Name"), "Select . . .", new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.ExpenseCategoryId, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Price, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Price, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Price, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.ItemCode, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.ItemCode, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.ItemCode, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Image, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Image, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Image, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Create" class="btn btn-default" />
+        </div>
+    </div>
+
+
+    <table class="table table-hover table-striped table-bordered">
+        <thead>
+            <tr>
+                <th>Sl</th>
+                <th>Category</th>
+                <th>Name</th>
+                <th>Code</th>
+                <th>Description</th>
+                <th>Action</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            @{
+                int Sl = 0;
+            }
+
+            @foreach (ExpenseItem ExpenseItem in Model.ChildItems)
+            {
+            <tr>
+                <td>@(++Sl)</td>
+               
+                    
+                    <td>
+                        @((from p in Model.ExpenseCategories
+                           where p.Id
+                           == ExpenseItem.ExpenseCategoryId
+                           select new { p.Name } ).First())
+                    </td>
+                
+                
+                <td>@ExpenseItem.Name</td>
+                <td>@ExpenseItem.ItemCode</td>
+                <td>@ExpenseItem.Description</td>
+                <td>Action</td>
+            </tr>
+            }
+
+        </tbody>
+    </table>
+</div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

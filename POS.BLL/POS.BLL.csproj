@@ -1,0 +1,97 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{C1B021F0-F467-4D66-94FB-F842E73D5F16}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>POS.BLL</RootNamespace>
+    <AssemblyName>POS.BLL</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BaseManager\Manager.cs" />
+    <Compile Include="ManagerRepositories\BranchManager.cs" />
+    <Compile Include="ManagerRepositories\EmployeeInfoManager.cs" />
+    <Compile Include="ManagerRepositories\ExpenseCategoryManager.cs" />
+    <Compile Include="ManagerRepositories\ExpenseDetailsManager.cs" />
+    <Compile Include="ManagerRepositories\ExpenseItemManager.cs" />
+    <Compile Include="ManagerRepositories\ExpenseManager.cs" />
+    <Compile Include="ManagerRepositories\ExpenseReportDetailsManager.cs" />
+    <Compile Include="ManagerRepositories\ExpenseReportManager.cs" />
+    <Compile Include="ManagerRepositories\IncomeReportDetailsManager.cs" />
+    <Compile Include="ManagerRepositories\IncomeReportManager.cs" />
+    <Compile Include="ManagerRepositories\ItemCategoryManager.cs" />
+    <Compile Include="ManagerRepositories\ItemManager.cs" />
+    <Compile Include="ManagerRepositories\OrganizationsManager.cs" />
+    <Compile Include="ManagerRepositories\PartyManager.cs" />
+    <Compile Include="ManagerRepositories\PurchaseReceivingDetailsManager.cs" />
+    <Compile Include="ManagerRepositories\PurchaseReceivingManager.cs" />
+    <Compile Include="ManagerRepositories\PurchaseReportDetailsManager.cs" />
+    <Compile Include="ManagerRepositories\PurchaseReportManager.cs" />
+    <Compile Include="ManagerRepositories\SalesDetailsManager.cs" />
+    <Compile Include="ManagerRepositories\SalesManager.cs" />
+    <Compile Include="ManagerRepositories\SalesReportDetailsManager.cs" />
+    <Compile Include="ManagerRepositories\SalesReportManager.cs" />
+    <Compile Include="ManagerRepositories\StockManager.cs" />
+    <Compile Include="ManagerRepositories\StockReportDetailsManager.cs" />
+    <Compile Include="ManagerRepositories\StockReportManager.cs" />
+    <Compile Include="obj\Debug\TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs" />
+    <Compile Include="obj\Debug\TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs" />
+    <Compile Include="obj\Debug\TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="obj\Debug\build.force" />
+    <None Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
+    <None Include="obj\Debug\POS.BLL.csproj.CoreCompileInputs.cache" />
+    <None Include="obj\Debug\POS.BLL.csprojAssemblyReference.cache" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\POS.Models\POS.Models.csproj">
+      <Project>{2202C685-AEE0-4BBE-B23B-2AEB8FF8A969}</Project>
+      <Name>POS.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\POS.Repository\POS.Repository.csproj">
+      <Project>{0E618828-4AD6-4DCD-AAAC-0F2A03DFA312}</Project>
+      <Name>POS.Repository</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="bin\Debug\" />
+    <Folder Include="bin\Release\" />
+    <Folder Include="obj\Debug\TempPE\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
